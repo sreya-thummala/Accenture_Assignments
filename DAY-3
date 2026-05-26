@@ -1,0 +1,107 @@
+use("socialDB");
+db.users.insertMany([
+{
+    userId:"U1",
+        username:"Dona",
+        email:"dona@gmail.com",
+        bio:"Bio1",
+        followersCount:800,
+        followingCount:700
+},
+{
+        userId:"U2",
+        username:"Sneha",
+        email:"sneha@gmail.com",
+        bio:"Bio2",
+        followersCount:1000,
+        followingCount:400
+    },
+ {
+        userId:"U3",
+        username:"Monika",
+        email:"monika@gmail.com",
+        bio:"Bio3",
+        followersCount:400,
+        followingCount:406
+    }
+]);
+
+
+
+db.posts.insertMany([
+{
+    postId: "P1",
+    userId: "U1",
+    caption: "Beautiful sunset",
+    hashtags: ["#sunset"],
+    likesCount: 45,
+    createdAt: new Date()
+}
+]);
+
+
+
+use("socialDB");
+db.comments.insertMany([
+{
+    commentId: "C1",
+    postId: "P1",
+    userId: "U2",
+    commentText: "Amazing picture",
+    commentedAt: new Date()
+}
+]);
+
+
+
+use("socialDB");
+db.followers.insertMany([
+{
+    followId: "F1",
+    followerId: "U2",
+    followingId: "U1",
+    followedAt: new Date()
+}
+]);
+
+
+
+use("socialDB");
+db.users.find().pretty();
+db.posts.find().pretty();
+db.comments.find().pretty();
+db.followers.find().pretty();
+db.activity_logs.find().pretty();
+
+
+
+use("socialDB");
+db.users.updateOne(
+    { userId: "U1" },
+    { $set: { bio: "Travel and Nature Lover" } }
+);
+
+db.posts.updateOne(
+    { postId: "P1" },
+    { $set: { caption: "Beautiful sunset at beach" } }
+);
+
+db.posts.updateOne(
+    { postId: "P1" },
+    { $set: { likesCount: 100 } }
+);
+
+
+
+use("socialDB");
+db.users.deleteOne({
+    userId: "U3"
+});
+
+db.comments.deleteOne({
+    commentId: "C1"
+});
+
+db.posts.deleteOne({
+    postId: "P1"
+});
