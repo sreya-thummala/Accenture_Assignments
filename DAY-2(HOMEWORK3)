@@ -1,0 +1,51 @@
+db.createCollection("customers")
+
+db.customers.insertMany([
+{
+ _id: 1,
+ name: "Arun",
+ profile: { age: 25, city: "Chennai" }
+},
+{
+ _id: 2,
+ name: "Priya",
+ profile: { age: 22, city: "Bangalore" }
+},
+{
+ _id: 3,
+ name: "Rahul",
+ profile: { age: 30, city: "Hyderabad" }
+},
+{
+ _id: 4,
+ name: "Neha",
+ profile: { age: 28, city: "Mumbai" }
+},
+{
+ _id: 5,
+ name: "Kiran",
+ profile: { age: 35, city: "Pune" }
+}
+])
+
+db.createCollection("movies")
+
+db.movies.insertMany([
+{ _id: "M1", title: "Inception", genre: "Sci-Fi", price: 300 },
+{ _id: "M2", title: "Avatar", genre: "Fantasy", price: 350 },
+{ _id: "M3", title: "Interstellar", genre: "Sci-Fi", price: 400 }
+])
+
+db.createCollection("bookings")
+
+db.bookings.insertMany([
+{ _id: 301, customer_id: 1, movie_id: "M1", show_date: "2026-02-01" },
+{ _id: 302, customer_id: 1, movie_id: "M2", show_date: "2026-02-03" },
+{ _id: 303, customer_id: 2, movie_id: "M1", show_date: "2026-02-05" },
+{ _id: 304, customer_id: 3, movie_id: "M3", show_date: "2026-02-06" },
+{ _id: 305, customer_id: 3, movie_id: "M1", show_date: "2026-02-08" },
+{ _id: 306, customer_id: 4, movie_id: "M2", show_date: "2026-02-10" },
+{ _id: 307, customer_id: 5, movie_id: "M3", show_date: "2026-02-12" },
+{ _id: 308, customer_id: 5, movie_id: "M2", show_date: "2026-02-14" }
+])
+
